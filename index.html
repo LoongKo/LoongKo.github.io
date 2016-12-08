@@ -79,7 +79,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/08/helle-hexo/">helle hexo</a>
+      <a class="article-title" href="/2016/12/08/helle-hexo/">html局部打印</a>
     </h1>
   
 
@@ -87,12 +87,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>这是我的博客第一篇文章</p>
+        <p>html页面局部打印的小栗子</p>
+<p>只要修改点击打印的按钮和打印的div区域的id就行啦</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>print test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.0.js"</span>&gt;</span><span class="undefined"></span></div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></div><div class="line">//貌似要jq 1.6版本以上才支持prop函数</div><div class="line">  $(document).ready(function()&#123;</div><div class="line">    var print_click = "print"; //打印的按钮的id</div><div class="line">    $("#" + print_click).bind("click", function()&#123;</div><div class="line">      var print_id = "print_content"; //要打印的div的id</div><div class="line">      var k = $("#" + print_id).prop("outerHTML");</div><div class="line">      $("body *").hide();</div><div class="line">      $("body").append(k);</div><div class="line">      window.print();</div><div class="line">      $("body *").show();</div><div class="line">      $("body #" + print_id + ":last").remove()</div><div class="line">    &#125;)</div><div class="line">  &#125;)</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>不需要打印<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"print_content"</span>&gt;</span>打印的内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">"print"</span>&gt;</span>打印<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/08/helle-hexo/" data-id="ciwggsb7c00006wujs145lo9x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/08/helle-hexo/" data-id="ciwghsl5a0000eouj0az3sbdy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -137,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2016/12/08/hello-world/" data-id="ciwggsb7k00016wujqjqr3k45" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2016/12/08/hello-world/" data-id="ciwghsl5r0001eoujprksmfak" class="article-share-link">Share</a>
       
       
     </footer>
@@ -177,7 +179,7 @@
       <ul>
         
           <li>
-            <a href="/2016/12/08/helle-hexo/">helle hexo</a>
+            <a href="/2016/12/08/helle-hexo/">html局部打印</a>
           </li>
         
           <li>
