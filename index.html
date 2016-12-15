@@ -12,8 +12,6 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LoongKo">
   
-    <link rel="alternate" href="/atom.xml" title="LoongKo" type="application/atom+xml">
-  
   
     <link rel="icon" href="/favicon.png">
   
@@ -52,8 +50,6 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
@@ -64,6 +60,49 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-保留键打乱数组" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/12/15/保留键打乱数组/" class="article-date">
+  <time datetime="2016-12-15T12:26:56.000Z" itemprop="datePublished">2016-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/15/保留键打乱数组/">保留键随机打乱数组顺序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>最近遇到一个需求，把一个数组随机打乱顺序，我们可以用php的shuffle函数，但是这个函数会把数组的键清空建立新的键，那么我们若想保留键只需要利用shuffle函数再做一下处理就可以了。可以自定义一个函数。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">retain_key_shuffle</span><span class="params">(array &amp;$arr)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span> (!<span class="keyword">empty</span>($arr)) &#123;</div><div class="line">    $key = array_keys($arr);</div><div class="line">    shuffle($key);</div><div class="line">    <span class="keyword">foreach</span> ($key <span class="keyword">as</span> $value) &#123;</div><div class="line">      $arr2[$value] = $arr[$value];</div><div class="line">    &#125;</div><div class="line">    $arr = $arr2;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>通过调用上面的函数就可以获得保留键顺序打乱新的数组了。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;?php</span></div><div class="line">$arr = <span class="keyword">array</span>(<span class="string">'a'</span> =&gt; <span class="string">'A'</span>, <span class="string">'b'</span> =&gt; <span class="string">'B'</span>);</div><div class="line">retain_key_shuffle($arr);</div><div class="line">var_export($arr);</div><div class="line"><span class="meta">?&gt;</span></div></pre></td></tr></table></figure>
+<p>输出随机打乱顺序后的数组。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://loongko.github.io/2016/12/15/保留键打乱数组/" data-id="ciwqcqqj100010suj5ni9iyfs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/php/">php</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-helle-hexo" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -98,7 +137,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://loongko.github.io/2016/12/08/helle-hexo/" data-id="ciwgmiip00000lsujocly1502" class="article-share-link">Share</a>
+      <a data-url="https://loongko.github.io/2016/12/08/helle-hexo/" data-id="ciwqcqqir00000sujnuu1mqy0" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
@@ -145,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://loongko.github.io/2016/12/08/hello-world/" data-id="ciwgmiip70001lsuju5mbvs3k" class="article-share-link">Share</a>
+      <a data-url="https://loongko.github.io/2016/12/08/hello-world/" data-id="ciwqcqqjc00040sujdm2g4dsz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -164,7 +203,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/html/">html</a><span class="category-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -174,7 +213,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/html/">html</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/javascript/">javascript</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/php/">php</a><span class="tag-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -184,7 +223,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a>
+      <a href="/tags/html/" style="font-size: 10px;">html</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/php/" style="font-size: 10px;">php</a>
     </div>
   </div>
 
@@ -193,7 +232,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/12/">December 2016</a><span class="archive-list-count">3</span></li></ul>
     </div>
   </div>
 
@@ -204,6 +243,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/12/15/保留键打乱数组/">保留键随机打乱数组顺序</a>
+          </li>
         
           <li>
             <a href="/2016/12/08/helle-hexo/">html局部打印</a>
