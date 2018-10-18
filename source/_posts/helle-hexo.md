@@ -2,7 +2,7 @@
 title: html局部打印
 date: 2016-12-08 21:19:52
 categories : html
-tags: [html, javascript]
+tags: [html, js]
 ---
 
 html页面局部打印的小栗子
