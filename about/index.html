@@ -88,20 +88,41 @@
 
 <meta name="description" content="这是我的个人博客，请多多指教！
 文章若有侵权请通过github的issues联系我删除！
-其他问题也可以在这里提问(●’◡’●)">
+其他问题也可以在这里提问(●’◡’●)
+
+
+  function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = &quot;-&quot;;
+    var year = date.getFullYear();
+    var mont">
 <meta property="og:type" content="website">
 <meta property="og:title" content="about">
 <meta property="og:url" content="https://loongko.github.io/about/index.html">
 <meta property="og:site_name" content="LoongKo的博客">
 <meta property="og:description" content="这是我的个人博客，请多多指教！
 文章若有侵权请通过github的issues联系我删除！
-其他问题也可以在这里提问(●’◡’●)">
-<meta property="og:updated_time" content="2018-10-18T19:51:36.411Z">
+其他问题也可以在这里提问(●’◡’●)
+
+
+  function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = &quot;-&quot;;
+    var year = date.getFullYear();
+    var mont">
+<meta property="og:updated_time" content="2018-10-23T19:26:07.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="about">
 <meta name="twitter:description" content="这是我的个人博客，请多多指教！
 文章若有侵权请通过github的issues联系我删除！
-其他问题也可以在这里提问(●’◡’●)">
+其他问题也可以在这里提问(●’◡’●)
+
+
+  function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = &quot;-&quot;;
+    var year = date.getFullYear();
+    var mont">
 
 
 
@@ -283,7 +304,25 @@
 <p>这是我的个人博客，请多多指教！</p>
 <p>文章若有侵权请通过<a href="https://github.com/LoongKo/LoongKo.github.io/issues" target="_blank" rel="external">github的issues</a>联系我删除！</p>
 <p>其他问题也可以在这里提问(●’◡’●)</p>
-
+<p><img src="" id="mryj"></p>
+<script type="text/javascript">
+  function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = year + seperator1 + month + seperator1 + strDate;
+    return currentdate;
+  }
+  document.getElementById("mryj").setAttribute("src","http://cdn.iciba.com//web//news//longweibo//imag//"+getNowFormatDate()+".jpg");
+</script>
         
       </div>
       
