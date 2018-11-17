@@ -11,6 +11,8 @@ date: 2018-10-19 01:26:13
 
 其他问题也可以在这里提问(●'◡'●)
 
+[基于thinkphp5开发的论坛(测试版)](http://loongko.gz01.bdysite.com/lss/public/)
+
 <img src="" id="mryj">
 <script type="text/javascript">
   function getNowFormatDate() {
