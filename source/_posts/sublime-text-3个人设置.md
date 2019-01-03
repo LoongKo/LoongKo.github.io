@@ -4,6 +4,7 @@ date: 2018-11-13 15:57:26
 categories: 其他
 tags: sublime text
 ---
+# Preferences.sublime-settings
 ```json
 {
   "color_scheme": "Packages/Color Scheme - Default/Monokai.sublime-color-scheme",
@@ -19,4 +20,21 @@ tags: sublime text
   "translate_tabs_to_spaces": true
 }
 
+```
+
+# PHP.sublime-build
+```json
+{
+  "cmd": ["php", "$file"], 
+  "file_regex": "php$",
+  "selector": "source.php"
+}
+```
+
+# Node.sublime-build
+```json
+{
+  "cmd": ["node", "$file"],
+  "selector": "source.js",
+}
 ```
