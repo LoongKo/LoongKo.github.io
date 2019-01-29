@@ -17,7 +17,8 @@ tags: sublime text
   "show_definitions": false,
   "tab_size": 2,
   "theme": "Adaptive.sublime-theme",
-  "translate_tabs_to_spaces": true
+  "translate_tabs_to_spaces": true,
+  "highlight_modified_tabs": true,
 }
 
 ```
