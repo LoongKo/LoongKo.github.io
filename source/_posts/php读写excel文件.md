@@ -19,6 +19,9 @@ $spreadsheet = IOFactory::load($inputFileName);
 $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
 var_export($sheetData);
 ```
+
+<!-- more -->
+
 excel表格数据
 {% asset_img 1.png %}
 
@@ -41,3 +44,5 @@ $sheet->setCellValue('A1', 'Hello World !');
 $writer = new Xlsx($spreadsheet);
 $writer->save('hello world.xlsx');
 ```
+
+还有一个读写word的类库https://github.com/PHPOffice/PHPWord
