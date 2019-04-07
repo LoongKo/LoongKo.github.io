@@ -98,7 +98,7 @@
 读取excel123456require &apos;新建文件夹\vendor\autoload.php&apos;;use PhpOffice\P">
 <meta property="og:image" content="https://loongko.github.io/2019/04/07/php读写excel文件/1.png">
 <meta property="og:image" content="https://loongko.github.io/2019/04/07/php读写excel文件/2.png">
-<meta property="og:updated_time" content="2019-04-07T13:16:53.236Z">
+<meta property="og:updated_time" content="2019-04-07T13:40:04.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php读写excel文件">
 <meta name="twitter:description" content="PhpSpreadsheet是PHP的一个类库，可以读写excel表格，可以替代PHPExcel。
@@ -373,6 +373,8 @@
 <p>打印的结果<br><img src="/2019/04/07/php读写excel文件/2.png" alt="2.png" title=""></p>
 <p>当然还有各种读取的方法，详细见<a href="https://phpspreadsheet.readthedocs.io/en/latest/" target="_blank" rel="external">官方文档</a>或者<a href="/2019/04/07/php读写excel文件/phpspreadsheet.7z" title="下载的文件">下载的文件</a>里面也有样例以及文档说明。</p>
 <h1 id="写入excel"><a href="#写入excel" class="headerlink" title="写入excel"></a>写入excel</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;</div><div class="line"></div><div class="line"><span class="keyword">use</span> <span class="title">PhpOffice</span>\<span class="title">PhpSpreadsheet</span>\<span class="title">Spreadsheet</span>;</div><div class="line"><span class="keyword">use</span> <span class="title">PhpOffice</span>\<span class="title">PhpSpreadsheet</span>\<span class="title">Writer</span>\<span class="title">Xlsx</span>;</div><div class="line"></div><div class="line">$spreadsheet = <span class="keyword">new</span> Spreadsheet();</div><div class="line">$sheet = $spreadsheet-&gt;getActiveSheet();</div><div class="line">$sheet-&gt;setCellValue(<span class="string">'A1'</span>, <span class="string">'Hello World !'</span>);</div><div class="line"></div><div class="line">$writer = <span class="keyword">new</span> Xlsx($spreadsheet);</div><div class="line">$writer-&gt;save(<span class="string">'hello world.xlsx'</span>);</div></pre></td></tr></table></figure>
+<p>还有一个读写word的类库<a href="https://github.com/PHPOffice/PHPWord" target="_blank" rel="external">https://github.com/PHPOffice/PHPWord</a></p>
+
       
     </div>
     
