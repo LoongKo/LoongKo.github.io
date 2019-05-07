@@ -19,9 +19,8 @@ php的DomCrawler组件的使用，可以分析html和xml源码等。
 <!-- more -->
 
 # 基本使用
-比如我们用DomCrawler爬取B站的视频排行榜，直接贴出php源代码。当然还有很多种使用方法，具体可查看
-官方文档https://symfony.com/doc/current/components/dom_crawler.html
-或者中文文档http://symfonychina.com/doc/current/components/dom_crawler.html
+比如我们用DomCrawler爬取B站的视频排行榜，直接贴出php源代码。当然还有很多种使用方法，具体可查看[官方文档](https://symfony.com/doc/current/components/dom_crawler.html)或者[中文文档](http://symfonychina.com/doc/current/components/dom_crawler.html)
+
 ```php
 require 'vendor/autoload.php';
 use Symfony\Component\DomCrawler\Crawler;
