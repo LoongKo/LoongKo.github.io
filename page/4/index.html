@@ -268,7 +268,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/03/05/在linux下vim中如何设置显示行数/">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/05/07/网站接入微信登陆/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LoongKo">
@@ -287,7 +287,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/05/在linux下vim中如何设置显示行数/" itemprop="url">在linux下vim中如何设置显示行数</a></h1>
+                <a class="post-title-link" href="/2019/05/07/网站接入微信登陆/" itemprop="url">网站接入微信登陆</a></h1>
         
 
         <div class="post-meta">
@@ -299,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T17:01:47+08:00">
-                2019-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T22:39:04+08:00">
+                2019-05-07
               </time>
             
 
@@ -322,8 +322,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/其他/" itemprop="url" rel="index">
+                    <span itemprop="name">其他</span>
                   </a>
                 </span>
 
@@ -360,10 +360,16 @@
 
       
         
-          
-            <p>第一步：<br>vi ~/.vimrc<br>第二步：<br>按i进入编辑模式<br>第三步：<br>输入set nu<br>第四步：<br>按esc,:wq存盘退出</p>
-
-          
+          <p>本文并不是讲具体详细的步骤，因为官方文档都是写的很清楚。主要说一下<a href="https://open.weixin.qq.com/">微信开放平台</a>和<a href="https://mp.weixin.qq.com/">微信公众平台</a>的区别，我们接入微信登陆需要用哪个平台。因为网上说的对于新手来说不是很容易理解，我也是查询很多资料才明白。</p>
+<p>场景一：pc端打开网站，需要用手机微信扫描二维码授权登陆，这种我们需要微信开放平台。<br>场景二：微信内置的浏览器打开网站（一般是适配手机端的网站网页），微信登陆直接显示授权页面，这种我们需要微信公众平台。<br>场景三：手机普通浏览器，即非微信内置的浏览器，点击微信登陆希望直接唤醒微信授权，这种情况据我所知目前好像官方给出的文档并没有提到，也没给出相应的api，所以这种情况暂时无法实现。</p>
+<p>上面三个场景说的是根据我查询的资料所得，若是有错误欢迎指正，毕竟上面只是我自己查询资料总结的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/07/网站接入微信登陆/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -410,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/01/03/git-add-status中文文件名乱码解决方法/">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/04/15/php把远程图片保存到本地文件夹/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LoongKo">
@@ -429,7 +435,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/03/git-add-status中文文件名乱码解决方法/" itemprop="url">git add status中文文件名乱码解决方法</a></h1>
+                <a class="post-title-link" href="/2019/04/15/php把远程图片保存到本地文件夹/" itemprop="url">php把远程图片保存到本地文件夹</a></h1>
         
 
         <div class="post-meta">
@@ -441,300 +447,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-03T23:10:00+08:00">
-                2019-01-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>配置<code>core.quotepath</code>为<code>false</code></p>
-<p>例如设置全局的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git config --global core.quotepath false</div></pre></td></tr></table></figure>
-<p>当然你也可以不设置<code>global</code>而是设置<code>system</code>或者<code>local</code></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2018/12/08/禁止Git自动保存账号密码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LoongKo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20168685?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LoongKo的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/08/禁止Git自动保存账号密码/" itemprop="url">禁止Git自动保存账号密码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-08T17:02:42+08:00">
-                2018-12-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>默认情况下 git 使用 https 在输入账号密码后会保存到 windows 凭据下。</p>
-<h1 id="禁止自动保存账号密码"><a href="#禁止自动保存账号密码" class="headerlink" title="禁止自动保存账号密码"></a>禁止自动保存账号密码</h1><p>禁止自动保存密码可以修改git的配置文件，system和global配置文件都可以<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git config --global --unset credential.helper</div><div class="line"></div><div class="line">或</div><div class="line"></div><div class="line">$ git config --system --unset credential.helper</div></pre></td></tr></table></figure></p>
-<h1 id="恢复自动保存账号密码"><a href="#恢复自动保存账号密码" class="headerlink" title="恢复自动保存账号密码"></a>恢复自动保存账号密码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">$ git config --global credential.helper manager</div><div class="line"></div><div class="line">或</div><div class="line"></div><div class="line">$ git config --system credential.helper manager</div></pre></td></tr></table></figure>
-<blockquote>
-<p>(出处<a href="https://novnan.github.io/Git/donot-make-git-remember-my-credentials/" target="_blank" rel="external">https://novnan.github.io/Git/donot-make-git-remember-my-credentials/</a>)</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2018/11/26/php遍历指定文件夹/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LoongKo">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20168685?s=460&v=4">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LoongKo的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/26/php遍历指定文件夹/" itemprop="url">php遍历指定文件夹</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T21:38:11+08:00">
-                2018-11-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T13:49:57+08:00">
+                2019-04-15
               </time>
             
 
@@ -795,7 +509,9 @@
       
         
           
-            <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//遍历指定文件夹</span></div><div class="line"><span class="comment">// $path为文件夹路径</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_all_files</span><span class="params">($path)</span></span>&#123;</div><div class="line">  $list = <span class="keyword">array</span>();</div><div class="line">  <span class="keyword">foreach</span>(glob($path . <span class="string">'/*'</span>) <span class="keyword">as</span> $item)&#123;</div><div class="line">    <span class="keyword">if</span>(is_dir($item))&#123;</div><div class="line">     $list = array_merge($list , get_all_files($item));</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span>&#123;</div><div class="line">     $list[] = $item;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> $list;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+            <p>php把远程的图片保存到本地文件夹的小栗子<br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$imgpath = <span class="string">'https://avatars0.githubusercontent.com/u/20168685?s=460&amp;v=4'</span>;</div><div class="line">file_put_contents(<span class="string">'saveimg.jpg'</span>, file_get_contents($imgpath));</div></pre></td></tr></table></figure></p>
+<p>通过这样结合<a href="https://symfony.com/doc/current/components/dom_crawler.html" target="_blank" rel="external">DomCrawler</a>可以爬取网站的一些图片下来的。<br>自己测试了一下爬取3600多张大概用了14分钟，每张20KB左右的大小，当然没用多线程的方式只是单线程，也没怎么考虑优化，只是大概测试一下，仅供参考。</p>
+<p>同理除了图片其他文件也是可以的。</p>
 
           
         
@@ -844,7 +560,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2018/11/17/获取B站弹幕xml文件方法/">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/04/15/php通过DomCrawler组件分析html源码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LoongKo">
@@ -863,7 +579,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/11/17/获取B站弹幕xml文件方法/" itemprop="url">获取B站弹幕xml文件方法</a></h1>
+                <a class="post-title-link" href="/2019/04/15/php通过DomCrawler组件分析html源码/" itemprop="url">php通过DomCrawler组件分析html源码</a></h1>
         
 
         <div class="post-meta">
@@ -875,8 +591,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-17T16:31:00+08:00">
-                2018-11-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-15T13:17:42+08:00">
+                2019-04-15
               </time>
             
 
@@ -898,8 +614,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/php/" itemprop="url" rel="index">
+                    <span itemprop="name">php</span>
                   </a>
                 </span>
 
@@ -936,16 +652,13 @@
 
       
         
-          <h1 id="第一步：找到视频对应的cid"><a href="#第一步：找到视频对应的cid" class="headerlink" title="第一步：找到视频对应的cid"></a>第一步：找到视频对应的cid</h1><p>打开视频的播放页面，鼠标右键打开查看页面源代码，通过搜索关键字cid找到视频对应的cid。比如下图的62298939就是该视频的cid。</p>
-<img src="/2018/11/17/获取B站弹幕xml文件方法/1.png" alt="1.png" title="">
-<h1 id="第二步：通过api获取xml文件"><a href="#第二步：通过api获取xml文件" class="headerlink" title="第二步：通过api获取xml文件"></a>第二步：通过api获取xml文件</h1><p><code>https://comment.bilibili.com/{$cid}.xml</code>这是B站官方的弹幕api，把{$cid}改为对应视频的cid就是视频的弹幕xml文件地址了。</p>
-<blockquote>
-<p>(出处：爬虫如何抓取b站评论，弹幕等内容？ - Komoriii的回答 - 知乎<br><a href="https://www.zhihu.com/question/56924570/answer/471366573">https://www.zhihu.com/question/56924570/answer/471366573</a>)</p>
-</blockquote>
-<h1 id="B站弹幕xml文件各个参数的意思"><a href="#B站弹幕xml文件各个参数的意思" class="headerlink" title="B站弹幕xml文件各个参数的意思"></a>B站弹幕xml文件各个参数的意思</h1>
+          <p>php的DomCrawler组件的使用，可以分析html和xml源码等。</p>
+<h1 id="安装DomCrawler"><a href="#安装DomCrawler" class="headerlink" title="安装DomCrawler"></a>安装DomCrawler</h1><p>通过composer安装DomCrawler<br><code>composer require symfony/dom-crawler</code></p>
+<p>安装之后就可以通过Xpath表达式方式操作，还有一种方式是通过类似Jquery的选择器操作html源码，但是需要安装CssSelector,本人对该方式比较熟悉所以以下例子便用这种方式。</p>
+<h1 id="安装CssSelector"><a href="#安装CssSelector" class="headerlink" title="安装CssSelector"></a>安装CssSelector</h1><p>通过composer安装CssSelector<br><code>composer require symfony/css-selector</code></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/11/17/获取B站弹幕xml文件方法/#more" rel="contents">
+            <a class="btn" href="/2019/04/15/php通过DomCrawler组件分析html源码/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -983,11 +696,300 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/04/12/flutter强制横屏和竖屏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LoongKo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20168685?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LoongKo的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/12/flutter强制横屏和竖屏/" itemprop="url">flutter强制横屏和竖屏</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-12T18:06:51+08:00">
+                2019-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flutter/" itemprop="url" rel="index">
+                    <span itemprop="name">flutter</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>记得先引入所需的包，另外貌似以下方法在ios上无效(本人未在ios上验证，android可以)。</p>
+<h1 id="引入所需的包"><a href="#引入所需的包" class="headerlink" title="引入所需的包"></a>引入所需的包</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'package:flutter/services.dart'</span>;</div></pre></td></tr></table></figure>
+<h1 id="强制横屏"><a href="#强制横屏" class="headerlink" title="强制横屏"></a>强制横屏</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SystemChrome.setPreferredOrientations([</div><div class="line">  DeviceOrientation.landscapeLeft,</div><div class="line">  DeviceOrientation.landscapeRight</div><div class="line">]);</div></pre></td></tr></table></figure>
+<h1 id="强制竖屏"><a href="#强制竖屏" class="headerlink" title="强制竖屏"></a>强制竖屏</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">SystemChrome.setPreferredOrientations([</div><div class="line">  DeviceOrientation.portraitUp,</div><div class="line">  DeviceOrientation.portraitDown</div><div class="line">]);</div></pre></td></tr></table></figure>
+<h1 id="默认"><a href="#默认" class="headerlink" title="默认"></a>默认</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SystemChrome.setPreferredOrientations([]);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/04/12/flutter隐藏与显示状态栏/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LoongKo">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars0.githubusercontent.com/u/20168685?s=460&v=4">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LoongKo的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/12/flutter隐藏与显示状态栏/" itemprop="url">flutter隐藏与显示状态栏</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-12T18:02:45+08:00">
+                2019-04-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/flutter/" itemprop="url" rel="index">
+                    <span itemprop="name">flutter</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="引入所需的包"><a href="#引入所需的包" class="headerlink" title="引入所需的包"></a>引入所需的包</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> <span class="string">'package:flutter/services.dart'</span>;</div></pre></td></tr></table></figure>
+<h1 id="隐藏状态栏"><a href="#隐藏状态栏" class="headerlink" title="隐藏状态栏"></a>隐藏状态栏</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SystemChrome.setEnabledSystemUIOverlays([]);</div></pre></td></tr></table></figure>
+<h1 id="显示状态栏"><a href="#显示状态栏" class="headerlink" title="显示状态栏"></a>显示状态栏</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1037,7 +1039,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1048,7 +1050,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1059,7 +1061,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1106,7 +1108,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

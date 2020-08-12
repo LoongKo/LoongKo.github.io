@@ -419,7 +419,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/11/20/git导出变更的文件/">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2020/08/13/nodejs开启http服务器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LoongKo">
@@ -438,7 +438,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/20/git导出变更的文件/" itemprop="url">git导出变更的文件</a></h1>
+                <a class="post-title-link" href="/2020/08/13/nodejs开启http服务器/" itemprop="url">nodejs开启http服务器</a></h1>
         
 
         <div class="post-meta">
@@ -450,8 +450,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-20T23:37:34+08:00">
-                2019-11-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T01:10:48+08:00">
+                2020-08-13
               </time>
             
 
@@ -460,28 +460,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -512,7 +490,11 @@
       
         
           
-            <p>git导出变更的文件，把下面的<code>commit_id</code>改为真实具体的，后面的<code>update.tar</code>是文件名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git diff commit_id --name-only | xargs tar -cvf update.tar</div></pre></td></tr></table></figure></p>
+            <h1 id="开启http服务器作为文件转发"><a href="#开启http服务器作为文件转发" class="headerlink" title="开启http服务器作为文件转发"></a>开启http服务器作为文件转发</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line"><span class="keyword">const</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>)</div><div class="line"><span class="keyword">const</span> url = <span class="built_in">require</span>(<span class="string">'url'</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">getClientIp</span>(<span class="params">req</span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> req.headers[<span class="string">'x-forwarded-for'</span>] ||</div><div class="line">        req.connection.remoteAddress ||</div><div class="line">        req.socket.remoteAddress ||</div><div class="line">        req.connection.socket.remoteAddress;</div><div class="line">&#125;</div><div class="line"></div><div class="line">http.createServer(&#123;<span class="string">'trust proxy'</span>: <span class="literal">true</span>&#125;,<span class="function"><span class="keyword">function</span>(<span class="params">req, res</span>)</span>&#123;</div><div class="line">  <span class="keyword">let</span> params = url.parse(req.url, <span class="literal">true</span>).query</div><div class="line">  <span class="comment">//params为获取的请求参数</span></div><div class="line">  <span class="keyword">if</span> (params.download) &#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'image/jpeg'</span>, <span class="string">'Content-Disposition'</span>:<span class="string">'attachment; filename="'</span>+(<span class="keyword">new</span> <span class="built_in">Date</span>().getTime())+<span class="string">'.jpg"'</span>&#125;);</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'['</span>+getClientIp(req)+<span class="string">']'</span> + params.download)</div><div class="line">    request(params.download).pipe(res)</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'['</span>+getClientIp(req)+<span class="string">']'</span>+<span class="built_in">JSON</span>.stringify(params))</div><div class="line">    res.end(<span class="string">'error'</span>)</div><div class="line">  &#125;</div><div class="line">&#125;).listen(<span class="number">4000</span>);</div></pre></td></tr></table></figure>
+<p>直接访问<code>http://127.0.0.1:4000</code>即可访问。</p>
+<h1 id="开启服务器"><a href="#开启服务器" class="headerlink" title="开启服务器"></a>开启服务器</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">request, response</span>) </span>&#123;</div><div class="line">    <span class="comment">// 发送 HTTP 头部 </span></div><div class="line">    <span class="comment">// HTTP 状态值: 200 : OK</span></div><div class="line">    <span class="comment">// 内容类型: text/plain</span></div><div class="line">    response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 发送响应数据 "Hello"</span></div><div class="line">    response.write(<span class="string">"Hello"</span>);</div><div class="line">    response.end();</div><div class="line">&#125;).listen(<span class="number">4000</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</div><div class="line">http.createServer(<span class="function"><span class="keyword">function</span> (<span class="params">request, response</span>) </span>&#123;</div><div class="line">    <span class="comment">// 发送 HTTP 头部 </span></div><div class="line">    <span class="comment">// HTTP 状态值: 200 : OK</span></div><div class="line">    <span class="comment">// 内容类型: text/plain</span></div><div class="line">    response.writeHead(<span class="number">200</span>, &#123;<span class="string">'Content-Type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 发送响应数据 "Hello"</span></div><div class="line">    response.end(<span class="string">"hello"</span>);</div><div class="line">&#125;).listen(<span class="number">4000</span>);</div></pre></td></tr></table></figure>
+<p>直接访问<code>http://127.0.0.1:4000</code>即可访问。</p>
 
           
         
@@ -561,7 +543,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/11/20/谷歌浏览器保存网页为图片/">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2020/08/13/java开启http服务器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LoongKo">
@@ -580,7 +562,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/20/谷歌浏览器保存网页为图片/" itemprop="url">谷歌浏览器保存网页为图片</a></h1>
+                <a class="post-title-link" href="/2020/08/13/java开启http服务器/" itemprop="url">java开启http服务器</a></h1>
         
 
         <div class="post-meta">
@@ -592,8 +574,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-20T23:21:43+08:00">
-                2019-11-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T01:07:56+08:00">
+                2020-08-13
               </time>
             
 
@@ -615,8 +597,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -654,9 +636,9 @@
       
         
           
-            <p>谷歌浏览器把网页保存为图片，其实自带的开发者工具便已经提供了该功能，按F12打开开发者工具，如下图所示</p>
-<img src="/2019/11/20/谷歌浏览器保存网页为图片/1.png" alt="1.png" title="">
-<img src="/2019/11/20/谷歌浏览器保存网页为图片/2.png" alt="2.png" title="">
+            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> com.sun.net.httpserver.HttpExchange;</div><div class="line"><span class="keyword">import</span> com.sun.net.httpserver.HttpHandler;</div><div class="line"><span class="keyword">import</span> com.sun.net.httpserver.HttpServer;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"><span class="keyword">import</span> java.io.OutputStream;</div><div class="line"><span class="keyword">import</span> java.net.InetSocketAddress;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] arg)</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">        HttpServer server = HttpServer.create(<span class="keyword">new</span> InetSocketAddress(<span class="number">8001</span>), <span class="number">0</span>);</div><div class="line">        server.createContext(<span class="string">"/test"</span>, <span class="keyword">new</span> TestHandler());</div><div class="line">        server.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">static</span>  <span class="class"><span class="keyword">class</span> <span class="title">TestHandler</span> <span class="keyword">implements</span> <span class="title">HttpHandler</span></span>&#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handle</span><span class="params">(HttpExchange exchange)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">            String response = <span class="string">"hello world"</span>;</div><div class="line">            exchange.sendResponseHeaders(<span class="number">200</span>, <span class="number">0</span>);</div><div class="line">            OutputStream os = exchange.getResponseBody();</div><div class="line">            os.write(response.getBytes());</div><div class="line">            os.close();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>访问<code>http://127.0.0.1:8001/test</code>即可看到输出hello world啦。</p>
+
           
         
       
@@ -704,7 +686,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/11/19/drush常见命令/">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2020/08/13/python断点函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LoongKo">
@@ -723,7 +705,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/19/drush常见命令/" itemprop="url">drush常见命令</a></h1>
+                <a class="post-title-link" href="/2020/08/13/python断点函数/" itemprop="url">python断点函数</a></h1>
         
 
         <div class="post-meta">
@@ -735,8 +717,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-19T01:25:33+08:00">
-                2019-11-19
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T01:05:09+08:00">
+                2020-08-13
               </time>
             
 
@@ -758,8 +740,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/drupal/" itemprop="url" rel="index">
-                    <span itemprop="name">drupal</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -797,7 +779,8 @@
       
         
           
-            <h1 id="修改用户密码"><a href="#修改用户密码" class="headerlink" title="修改用户密码"></a>修改用户密码</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">drush upwd --password=&quot;newpassword&quot; &quot;username&quot;</div></pre></td></tr></table></figure>
+            <p>python断点函数(python版本3.7及以上)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">breakpoint()</div></pre></td></tr></table></figure></p>
+
           
         
       
@@ -845,7 +828,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2019/05/30/Browsersync简单使用说明/">
+    <link itemprop="mainEntityOfPage" href="https://loongko.github.io/2020/08/13/java写文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LoongKo">
@@ -864,7 +847,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/30/Browsersync简单使用说明/" itemprop="url">Browsersync简单使用说明</a></h1>
+                <a class="post-title-link" href="/2020/08/13/java写文件/" itemprop="url">java写文件</a></h1>
         
 
         <div class="post-meta">
@@ -876,8 +859,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-30T21:20:42+08:00">
-                2019-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-08-13T00:46:43+08:00">
+                2020-08-13
               </time>
             
 
@@ -899,8 +882,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -938,10 +921,8 @@
       
         
           
-            <p><a href="http://www.browsersync.cn/" target="_blank" rel="external">Browsersync</a>是一个同步测试工具，能实现自动刷新，比如我修改html,css,js等文件，保存了之后浏览器会自动刷新页面，各个页面也能同步，当然监控什么类型文件都可以设置，主要记录一下我常用的。</p>
-<h1 id="安装Browsersync-全局安装"><a href="#安装Browsersync-全局安装" class="headerlink" title="安装Browsersync(全局安装)"></a>安装Browsersync(全局安装)</h1><p><code>npm install -g browser-sync</code></p>
-<h1 id="启动Browsersync"><a href="#启动Browsersync" class="headerlink" title="启动Browsersync"></a>启动Browsersync</h1><p>启动本地服务器并监控当前目录下所有文件，更多命令可查看<a href="http://www.browsersync.cn/docs/command-line/" target="_blank" rel="external">官方文档</a><br><code>browser-sync start --server --files &#39;**&#39;</code></p>
-
+            <h1 id="java写文件-覆盖"><a href="#java写文件-覆盖" class="headerlink" title="java写文件(覆盖)"></a>java写文件(覆盖)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">    FileWriter writer = <span class="keyword">new</span> FileWriter(<span class="string">"./test.txt"</span>, <span class="keyword">false</span>);</div><div class="line">    writer.write(<span class="string">"hello"</span>);</div><div class="line">    writer.flush();</div><div class="line">    writer.close();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="java写文件-追加"><a href="#java写文件-追加" class="headerlink" title="java写文件(追加)"></a>java写文件(追加)</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">    FileWriter writer = <span class="keyword">new</span> FileWriter(<span class="string">"./test.txt"</span>, <span class="keyword">true</span>);</div><div class="line">    writer.write(<span class="string">"hello"</span>);</div><div class="line">    writer.flush();</div><div class="line">    writer.close();</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
           
         
       
@@ -980,7 +961,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1030,7 +1011,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">38</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1041,7 +1022,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1052,7 +1033,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1099,7 +1080,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
